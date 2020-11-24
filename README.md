@@ -1,5 +1,6 @@
 # Social-Media-Dashboard  
 <b style="font-size: 32px">CodePen live preview: https://codepen.io/Sebastian-m/pen/ZEOgMvY</b>  
+<hr>
 Social Media Dashboard with dark mode theme switcher         
 Light Mode dashboard  
 
