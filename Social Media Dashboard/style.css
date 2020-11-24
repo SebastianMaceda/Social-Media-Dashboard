@@ -1,0 +1,363 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.6s ease, color 0.2s ease-in;
+}
+:root{
+    --youtubeRed: #ff0000;
+}
+.lightMode{
+    --roundSliderColor: #ccc;
+    --roundSliderBGC: #fff;
+    --roundSliderHover: linear-gradient(to right, #378fe6 50%, #3eda82);
+    --smallTextColor: #666;
+    --boxBGC: #f0f2fa;
+    --boxHoverBGC: #dadff1;
+    --socialMediaCount: #1e202a;
+    --backgroundColor: linear-gradient(to bottom, #f5f5f5 0%,#f5f5f5 40%,#f5f5f5 40%,white 45%,white 100%) center center no-repeat;
+    --headText: #000;
+}
+.darkMode{
+    --roundSliderColor: linear-gradient(to right, #378fe6 50%, #3eda82);
+    --roundSliderBGC: #fff;
+    --roundSliderHover: #ccc;
+    --smallTextColor: #8b97c6;
+    --boxBGC: #252a41;
+    --boxHoverBGC: #2e3552;
+    --socialMediaCount: #ffffff;
+    --backgroundColor: linear-gradient(to bottom, #1f212e 0%,#1f212e 40%,#1e202a 40%,#1e202a 45%,#1e202a 100%) center center no-repeat;
+    --headText: #fff;
+}
+.line{
+    display: none;
+}
+body{
+    background: var(--backgroundColor);
+    min-height: 100vh;
+    padding-bottom: 150px;
+}
+.headerContainer, .topContainer, .bottomContainer, .headText{
+    min-width: 1100px;
+    margin: auto;
+}
+.topContainer{
+    margin-top: 25px;
+}
+.headerContainer{
+    min-height: 15vh;
+    margin-bottom: 25px;
+}
+header, .headText{
+    color: var(--headText);
+    width: 60%;
+    margin: auto;
+    padding: 50px 0;
+    /* position: relative; */
+    transition: 0.5s ease;
+}
+.title{
+    float: left;
+}
+.socialMediaTitle{
+    font-size: 32px;
+    line-height: 48px;
+}
+.totalFollowers{
+    color: var(--smallTextColor);
+    font-weight: 600;
+    font-size: 14px;
+}
+.darkModeText{
+    position: absolute;
+    right: 50px;
+    width: 90px;
+    font-weight: 600;
+    color: var(--smallTextColor);
+    font-size: 14px;
+}
+.toggleSwitch{
+    float: right;
+    position: relative;
+    top: 10px;
+}
+.toggle{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    right: 25px;
+}
+#switch{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.roundSlider:hover{
+    background: linear-gradient(90deg, #378fe6, #3eda82);
+}
+.roundSlider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--roundSliderColor);
+    border-radius: 34px;
+}
+.roundSlider::before{
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    left: 5px;
+    bottom: 4px;
+    background-color: var(--roundSliderBGC);
+    -webkit-transition: .5s ;
+    transition: .5s;
+    border-radius: 50%;
+}
+#switch:checked + .roundSlider{
+    background: linear-gradient(90deg, #378fe6, #3eda82);
+}
+#switch:focus + .roundSlider{
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+}
+#switch:checked + .roundSlider::before{
+    -webkit-transform: translateX(21px);
+    -ms-transform: translateX(21px);
+    transform: translateX(21px);
+}
+#switch:checked + .roundSlider:hover{
+    background: var(--roundSliderHover);
+}
+.topContainer, .bottomContainer{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 60%;
+    margin: auto;
+    grid-row-gap: 5vh;
+}
+
+
+
+@media only screen and (max-width: 1150px){
+    .topContainer, .bottomContainer{
+        grid-template-columns: auto auto auto;
+    }
+    .headerContainer, .topContainer, .bottomContainer, .headText{
+        min-width: 800px;
+    }
+}
+@media only screen and (max-width: 950px){
+    .topContainer, .bottomContainer{
+        grid-template-columns: auto auto;
+    }
+    .headerContainer, .topContainer, .bottomContainer, .headText{
+        min-width: 600px;
+    }
+}
+@media only screen and (max-width: 650px){
+    .topContainer, .bottomContainer{
+        grid-template-columns: auto;
+    }
+    .headerContainer, .topContainer, .bottomContainer, .headText{
+        min-width: 365px;
+    }
+    .headerContainer{
+        min-height: 25vh;
+    }
+    .totalFollowers{
+        margin-bottom: 15px;
+    }
+    .line{
+        display: block;
+        height: 1px;
+        background-color: var(--smallTextColor);
+        margin: 25px 0;
+        width: 365px;
+        border: none;
+    }
+    .socialMediaTitle{
+        font-size: 28px;    
+    }
+    .darkModeText{
+        right: 250px;
+    }
+    .toggleSwitch{
+        top: 0;
+    }
+}
+
+
+
+.topBox{
+    text-align: center;
+    width: 90%;
+    background-color: var(--boxBGC);
+    border-radius: 5px;
+}
+.topBox:hover, .bottomBox:hover{
+    background-color: var(--boxHoverBGC);
+}
+.facebook{
+    border-top: 4px solid #4267B2;
+}
+.twitter{
+    border-top: 4px solid #1DA1F2;
+}
+.instagramBorder{
+    z-index: 10;
+    background: -webkit-linear-gradient(45deg, #FFDC80, #E1306C);
+    height: 4px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.youtube{
+    border-top: var(--youtubeRed) 4px solid;
+}
+.socialMediaAcc{
+    display: flex;
+    width: 50%;
+    margin: auto;
+    /* margin: 25px; */
+    margin-top: 10px;
+}
+.fab{
+    flex: 1;
+    text-align: right;
+    margin-right: 2px;
+    font-size: 24px;
+}
+.fa-facebook-square{
+    color: #4267B2;
+}
+.fa-twitter{
+    color: #1DA1F2;
+}
+.fa-instagram{
+    background: -webkit-linear-gradient(#E1306C, #FFDC80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.fa-youtube{
+    color: #FF0000;
+}
+.accName{
+    flex: 3;
+    text-align: left;
+    margin-left: 2px;
+    font-weight: 600;
+    color: var(--smallTextColor);
+    font-size: 12px;
+}
+.fab, .accName{
+    line-height: 50px;
+    vertical-align: middle;
+}
+.socialMediaCount{
+    font-size: 48px;
+    color: var(--socialMediaCount);
+    line-height: 52px;
+}
+.followersText{
+    color: var(--smallTextColor);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.arrowUpColor{
+    display: flex;
+    color: #1db489;
+    font-size: 14px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+.arrowDownColor{
+    display: flex;
+    color: #dc414c;
+    font-size: 14px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+.first{
+    position: relative;
+    right: 35px;
+}
+.fas{
+    flex: 1;
+    text-align: right;
+    margin-right: 2px;
+    vertical-align: middle;
+    line-height: 50px;
+}
+.followersToday{
+    flex: 1;
+    text-align: left;
+    margin-left: 2px;
+    font-weight: 600;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+.bottomBox{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    padding: 5px 10px;
+    background-color: var(--boxBGC);
+    min-height: 15vh;
+    border-radius: 5px;
+}
+.pageStats{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.stats{
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    color: var(--smallTextColor);
+}
+.statNumbers{
+    color: var(--socialMediaCount);
+    font-size: 32px;
+}
+.stats,.statNumbers,.bottomIcon,.arrowUpColorBottom, .arrowUpColorBottom{
+    flex: 1;
+    line-height: 50px;
+    vertical-align: middle;
+}
+.pagePercent{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.bottomIcon{
+    margin: 0;
+    line-height: 50px;
+    text-align: right;
+    position: relative;
+    right: 10%;
+}
+
+.arrowUpColorBottom, .arrowDownColorBottom{
+    display: flex;
+    text-align: right;
+    position: relative;
+    left: 10px;
+}
+.arrowUpColorBottom{
+    color: #1db489;
+}
+.arrowDownColorBottom{
+    color: #FF0000;
+    bottom: 15px;
+}
